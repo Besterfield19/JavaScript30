@@ -59,9 +59,11 @@
   <audio data-key="76" src="sounds/tink.wav"></audio>
 
 <script>
-//Add an event listener for key strokes, log to the console what happens when a key is pressed
+//Add an event listener with logic for key strokes
 window.addEventListener('keydown', function(e) {
-  console.log(e);
+  const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+  if(!audio) return; //stop the function from running altogether
+  audio.currentTime = 0; //rewinds to the start
 });
 </script>
 
